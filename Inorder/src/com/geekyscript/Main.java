@@ -16,6 +16,8 @@ public class Main {
         preorder(root);
         System.out.println();
         postorder(root);
+        System.out.println();
+        System.out.println(height(root));
     }
 
     public static void inorder(Node root){
@@ -40,6 +42,11 @@ public class Main {
             postorder(root.right);
             System.out.print(root.data+" ");
         }
+    }
+
+    public static int height(Node root){
+        if(root==null) return 0;
+        else return Math.max(height(root.left), height(root.right))+1;
     }
 
 }
