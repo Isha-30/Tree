@@ -16,7 +16,7 @@ public class Main {
 
     public static void NodeAtK(Node root, int k){
         if(root == null) return;
-        else if(k==0) System.out.print(root.data + " ");
+        if(k==0) System.out.print(root.data + " ");
         else{
             NodeAtK(root.left, k-1);
             NodeAtK(root.right, k-1);
