@@ -1,0 +1,9 @@
+class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        if(root == null) return null;
+        TreeNode mirror = new TreeNode(root.val, null, null);
+        mirror.right = invertTree(root.left);
+        mirror.left = invertTree(root.right);
+        return mirror;
+    }
+}
