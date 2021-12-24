@@ -1,0 +1,26 @@
+class Solution {
+   public List<List<Integer>> zigzagLevelOrder(TreeNode root) 
+    {
+        List<List<Integer>> list = new ArrayList<>();
+        travel(root, list, 0);
+        return list;
+    }
+    
+    private void travel(TreeNode curr, List<List<Integer>> list, int level)
+    {
+        if(curr == null) return;
+        
+        if(list.size() <= level)
+        {
+            List<Integer> newLevel = new LinkedList<>();
+            list.add(newLevel);
+        }
+        
+        List<Integer> collection  = list.get(level);
+        if(level % 2 == 0) collection.add(curr.val);
+        else collection.add(0, curr.val);
+        
+        travel(curr.left, list, level + 1);
+        travel(curr.right, list, level + 1);
+    }
+}
